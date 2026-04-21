@@ -1,0 +1,31 @@
+[package]
+name = "steam-redirect"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["Your Name <your.email@example.com>"]
+description = "A wrapper for Steam Proton games that redirects execution to another program based on configuration"
+repository = "https://github.com/yourusername/steam-redirect"
+license = "MIT"
+keywords = ["steam", "proton", "wrapper", "gaming", "mod-manager"]
+categories = ["command-line-utilities", "games"]
+readme = "README.md"
+
+[dependencies]
+thiserror = "1.0"
+
+[[bin]]
+name = "steam-redirect"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+[package.metadata.windows]
+windows_subsystem = "windows"

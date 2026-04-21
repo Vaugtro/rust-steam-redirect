@@ -1,0 +1,25 @@
+# Steam Wrapper Configuration File
+# Place this file in the same directory as the wrapper or in a parent directory
+# The wrapper will search upward from its location for this file
+
+# Program to execute instead of the Steam game
+# Supports:
+#   - Relative paths: ./game.exe or ../folder/game.exe
+#   - Absolute paths: /home/user/game.exe
+#   - Paths with spaces (use quotes): "C:\Program Files\Game\game.exe"
+#   - Arguments can be included: ./mod_manager.exe -profile MyProfile
+
+# Example 1: Launch Mod Organizer for Skyrim
+program="C:\Program Files\ModOrganizer2\ModOrganizer.exe" -profile Skyrim
+
+# Example 2: Launch a local game executable
+# program=./games/skyrim.exe
+
+# Example 3: Launch with absolute path containing spaces
+# program="/home/user/Game Folder/game.exe"
+
+# Example 4: Launch with multiple arguments
+# program="./launcher.exe" --config game.ini --verbose
+
+# Optional fallback: original game launcher or alternate executable used when NO_REDIRECT=1
+# fallback="./_SkyrimSELauncher.exe"
