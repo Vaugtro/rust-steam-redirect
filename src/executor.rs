@@ -27,10 +27,10 @@ pub fn execute_program(program: &str, args: &[String]) -> Result<i32> {
         // On Unix, use exec to replace the current process
         // This avoids fork/exec issues with Proton
         let err = cmd.exec();
-        return Err(WrapperError::ExecutionError(format!(
+        Err(WrapperError::ExecutionError(format!(
             "Failed to execute '{}': {}",
             program, err
-        )));
+        )))
     }
 
     #[cfg(not(unix))]

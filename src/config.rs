@@ -184,7 +184,8 @@ program=./game.exe"#;
         let result = parse_fallback_entry(config, Path::new("."));
         assert!(result.is_ok());
         let fallback = result.unwrap();
-        assert_eq!(fallback.unwrap(), vec!["./_SkyrimSELauncher.exe"]);
+        let expected_path = format!(".{}_SkyrimSELauncher.exe", std::path::MAIN_SEPARATOR);
+        assert_eq!(fallback.unwrap(), vec![expected_path]);
     }
 
     #[test]
@@ -193,7 +194,11 @@ program=./game.exe"#;
         let result = parse_fallback_entry(config, Path::new("."));
         assert!(result.is_ok());
         let fallback = result.unwrap();
-        assert_eq!(fallback.unwrap(), vec!["./_SkyrimSELauncher.exe", "--skipintro"]);
+        let expected_path = format!(".{}_SkyrimSELauncher.exe", std::path::MAIN_SEPARATOR);
+        assert_eq!(
+            fallback.unwrap(),
+            vec![expected_path, "--skipintro".to_string()]
+        );
     }
 
     #[test]

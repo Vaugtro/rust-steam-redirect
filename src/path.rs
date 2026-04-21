@@ -69,8 +69,7 @@ pub fn resolve_path(path: &str, base_dir: &Path) -> String {
         return path.to_string();
     }
 
-    if path.starts_with("./") {
-        let trimmed = &path[2..];
+    if let Some(trimmed) = path.strip_prefix("./") {
         let resolved = base_dir.join(trimmed);
         if let Ok(canonical) = resolved.canonicalize() {
             return canonical.to_string_lossy().into_owned();

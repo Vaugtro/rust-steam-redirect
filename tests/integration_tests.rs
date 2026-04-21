@@ -1,6 +1,6 @@
+use std::path::Path;
 use steam_redirect::config::parse_program_entry;
 use steam_redirect::path::parse_command_line;
-use std::path::Path;
 
 #[test]
 fn test_parse_program_entry_integration() {
